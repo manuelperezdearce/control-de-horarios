@@ -27,7 +27,7 @@ $registros = getData();
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -40,63 +40,21 @@ $registros = getData();
 </head>
 
 <body>
-    <main class="d-flex flex-row">
-        <!-- <h1 class="text-center">Hola Mundo</h1> -->
+    <main class="d-flex flex-row flex-wrap">
         <section class="p-4 col-4">
-            <form action="">
-                <div class="mb-3">
-                    <label for="nameForm" class="form-label">Email address</label>
-                    <input type="text" class="form-control" id="nameForm" placeholder="Mi name">
-                </div>
-                <div class="mb-3">
-                    <label for="emailForm" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="emailForm" placeholder="name@example.com">
-                </div>
-                <button
-                    name=""
-                    id=""
-                    class="btn btn-primary"
-                    href="#"
-                    role="button">Enviar</button>
-
-            </form>
+            <?php
+            include("./components/formularioRegistro.php");
+            ?>
         </section>
         <section class="p-4 col-8">
-            <div
-                class="table-responsive">
-                <table
-                    class="table table-primary">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($registros as $registro) { ?>
-                            <tr class="">
-                                <td scope="row"><?= $registro["report_id"] ?></td>
-                                <td><?= $registro["user_name"] ?></td>
-                                <td><?= $registro["user_email"] ?></td>
-                                <td class="">
-                                    <a class="btn btn-warning" href=""><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a class="btn btn-danger" href=""><i class="fa-solid fa-trash"></i></a>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-
+            <?php
+            include("./components/tablaRegistros.php");
+            ?>
         </section>
 
-
-
-
-
-        <!-- JavaScript Bootstrap -->
-        <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    </main>
+    <!-- JavaScript Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
