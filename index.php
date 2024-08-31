@@ -1,3 +1,31 @@
+<?php
+
+include_once("./modelo/conexion.php");
+
+
+function getData()
+{
+    global $conexion;
+    $sql = "SELECT * FROM reports_db.reports";
+    $res = $conexion->query($sql);
+
+    if ($res === false) {
+        die("Error en la consulta: " . $conexion->error);
+    }
+    $data = [];
+
+    if ($res->num_rows > 0) {
+        while ($row = $res->fetch_assoc()) {
+            $data[] = $row;
+        }
+    }
+    return $data;
+}
+$registros = getData();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,16 +74,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="">
-                            <td scope="row">1</td>
-                            <td>Pepe Cortizona</td>
-                            <td>pepe@email.com</td>
-                            <td class="">
-                                <a class="btn btn-warning" href=""><i class="fa-solid fa-pen-to-square"></i></a>
-                                <a class="btn btn-danger" href=""><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-
+                        <?php foreach ($registros as $registro) { ?>
+                            <tr class="">
+                                <td scope="row"><?= $registro["report_id"] ?></td>
+                                <td><?= $registro["user_name"] ?></td>
+                                <td><?= $registro["user_email"] ?></td>
+                                <td class="">
+                                    <a class="btn btn-warning" href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a class="btn btn-danger" href=""><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
