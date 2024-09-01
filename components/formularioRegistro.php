@@ -1,16 +1,14 @@
-<form action="">
+<form action="../modelo/crearRegistro.php" method="post">
     <div class="mb-3">
-        <label for="nameForm" class="form-label">Nombre</label>
+        <label name="user_name" for="nameForm" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="nameForm" placeholder="Mi Nombre">
     </div>
     <div class="mb-3">
-        <label for="emailForm" class="form-label">Email</label>
+        <label name="user_email" for="emailForm" class="form-label">Email</label>
         <input type="email" class="form-control" id="emailForm" placeholder="nombre@ejemplo.com">
     </div>
     <button
-        name=""
-        id=""
+        type="submit"
         class="btn btn-primary"
-        href="#"
         role="button">Enviar</button>
 </form>

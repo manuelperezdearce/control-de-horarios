@@ -40,18 +40,18 @@ $registros = getData();
 </head>
 
 <body>
-    <main class="d-flex flex-row flex-wrap">
-        <section class="p-4 col-4">
-            <?php
-            include("./components/formularioRegistro.php");
-            ?>
+    <main class="d-flex flex-wrap">
+        <section class="p-4 col-12 col-md-4">
+            <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
+                <div class="alert alert-success" role="alert">
+                    Registro creado exitosamente.
+                </div>
+            <?php endif; ?>
+            <?php include("./components/formularioRegistro.php"); ?>
         </section>
-        <section class="p-4 col-8">
-            <?php
-            include("./components/tablaRegistros.php");
-            ?>
+        <section class="p-4 col-12 col-md-8">
+            <?php include("./components/tablaRegistros.php"); ?>
         </section>
-
     </main>
     <!-- JavaScript Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
