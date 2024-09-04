@@ -5,7 +5,7 @@
 function getData()
 {
 
-    include_once('./controlador/conexion.php');
+    include_once('controllers/conexion.php');
 
     $sql = "SELECT * FROM reports_db.reports";
     $res = $conexion->query($sql);
@@ -26,7 +26,7 @@ $registros = getData();
 ?>
 
 
-<div class="table-responsive">
+<div class="table-responsive max-w-[1400px] mx-auto">
     <table class="table ">
         <thead>
             <tr class="bg-secondary">
@@ -51,7 +51,7 @@ $registros = getData();
                         <a class="btn btn-warning" href="" data-bs-toggle="modal"
                             data-bs-target="<?= "#modal" . $registro["report_id"] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                         <!-- Formulario para eliminar -->
-                        <form action="./controlador/eliminarRegistro.php" method="post" style="display:inline;">
+                        <form action="./controllers/eliminarRegistro.php" method="post" style="display:inline;">
                             <input type="hidden" name="report_id" value="<?= htmlspecialchars($registro['report_id']) ?>">
                             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
                             <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?');">
@@ -86,7 +86,7 @@ $registros = getData();
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="../controlador/editarRegistro.php" method="post">
+                                <form action="controllers/editarRegistro.php" method="post">
                                     <input type="hidden" name="report_id" value="<?= $registro["report_id"] ?>">
                                     <div class="mb-3">
                                         <label for="nameForm" class="form-label">Nombre</label>

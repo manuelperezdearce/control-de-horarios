@@ -1,7 +1,7 @@
-<?php include("./components/head.php"); ?>
+<?php include("./views/components/head.php"); ?>
 
 <body>
-    <?php include("./components/header.php"); ?>
+    <?php include("./views/components/header.php"); ?>
     <main class="d-flex flex-wrap relative">
         <?php
 
@@ -11,12 +11,12 @@
         // Ruteo básico
         switch ($page) {
             case 'registros':
-                include_once 'controlador/registrosController.php';
+                include_once 'controllers/registrosController.php';
                 registros();
                 break;
             case 'home':
             default:
-                include_once 'controlador/homeController.php';
+                include_once 'controllers/homeController.php';
                 home();
                 break;
         }

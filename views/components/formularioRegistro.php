@@ -1,4 +1,13 @@
-<form class="max-w-md mx-auto" action="../controlador/crearRegistro.php" method="post">
+<?php
+
+
+
+
+
+?>
+
+
+<form class="max-w-md mx-auto" action="controllers/crearRegistro.php" method="post">
     <div class="mb-3">
         <label name="user_name" for="nameForm" class="form-label">Nombre</label>
         <input name="user_name" type="text" class="form-control" id="nameForm" placeholder="Mi Nombre">
