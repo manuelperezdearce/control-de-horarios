@@ -1,5 +1,5 @@
 <?php
-function registros()
+function searchbar()
 {
     include './views/components/searchbar.php';
 }

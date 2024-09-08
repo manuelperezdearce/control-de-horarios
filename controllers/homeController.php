@@ -1,5 +1,5 @@
 <?php
 function home()
 {
-    include 'views/home.php';
+    include 'views/homeView.php';
 }

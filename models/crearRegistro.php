@@ -1,5 +1,5 @@
 <?php
-include "conexion.php";
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userName = $_POST['user_name'];

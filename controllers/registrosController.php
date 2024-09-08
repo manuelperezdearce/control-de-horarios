@@ -1,5 +1,12 @@
 <?php
-function registros()
+
+include("controllers/tablaRegistrosController.php");
+include("controllers/dashboardController.php");
+
+function registrosController()
 {
-    include './views/registros.php';
+    // Llamar al controlador para renderizar el dashboard
+    dashboardController();
+    // Llamar al controlador para renderizar la tabla
+    tablaRegistrosController();
 }
