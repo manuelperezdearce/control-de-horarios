@@ -11,25 +11,22 @@
     </nav> -->
 
 
-    <nav class="navbar navbar-expand-lg bg-warning">
+    <nav class="navbar navbar-expand-lg max-w-[1400px] mx-auto">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Tus Registros.com</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" ...>
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collap7se navbar-collape" id="navbarNav">
+            <div class="collape navbar-collape" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php?page=home">Inicio</a>
+                        <a class="nav-link" href="index.php?page=home">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php?page=registros">Registros</a>
+                        <a class="nav-link" href="index.php?page=registros">Registros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disable" href="#">Mi perfil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Mi perfil</a>
                     </li>
                 </ul>
             </div>
