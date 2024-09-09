@@ -1,4 +1,5 @@
 <?php include("./views/components/head.php"); ?>
+<!-- /index.php -->
 
 <body>
     <?php include("./views/components/header.php"); ?>

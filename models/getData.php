@@ -1,5 +1,5 @@
 <?php
-
+// getData.php
 function getData($conexion)
 {
     $sql = "SELECT * FROM reports_db.reports";

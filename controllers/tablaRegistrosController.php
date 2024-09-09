@@ -1,8 +1,8 @@
 <?php
-
+// tablaRegistrosController.php
 include_once "models/getData.php";
 include_once "views/components/tablaRegistros.php";
-include_once "models/conexion.php";
+include "models/conexion.php";
 
 // Función principal del controlador
 function tablaRegistrosController()

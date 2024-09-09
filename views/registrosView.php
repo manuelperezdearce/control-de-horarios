@@ -1,5 +1,5 @@
  <?php
-
+    //components/registrosView.php
     include("controllers/registrosController.php");
 
 

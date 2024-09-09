@@ -1,5 +1,5 @@
 <?php
-
+//components/searchbarView.php
 function searchbarView()
 {
 ?>

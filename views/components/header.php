@@ -1,3 +1,6 @@
+<!-- //components/header.php -->
+
+
 <header class="bg-warning shadow-md">
     <!-- <nav class="flex justify-between items-center max-w-[1200px] mx-auto px-8">
         <h1 class="h3 font-black">Tus Registros.com</h1>
@@ -14,7 +17,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collaps navbar-collapse" id="navbarNav">
+            <div class="collap7se navbar-collape" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" href="index.php?page=home">Inicio</a>

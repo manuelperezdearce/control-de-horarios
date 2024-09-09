@@ -3,7 +3,7 @@
 function tablaRegistrosView($registros)
 {
 ?>
-    <div class="w-full table-responsive max-w-[1400px] mx-auto">
+    <div class="w-full table-responsive max-w-[1400px] mx-auto shadow-md">
         <table class="table">
             <thead>
                 <tr class="bg-secondary">

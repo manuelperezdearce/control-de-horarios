@@ -1,4 +1,5 @@
 <?php
+//components/dashboardView.php
 function dashboardView()
 {
 ?>

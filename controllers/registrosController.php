@@ -1,7 +1,7 @@
 <?php
-
-include("controllers/tablaRegistrosController.php");
-include("controllers/dashboardController.php");
+// registrosController.php
+include "controllers/tablaRegistrosController.php";
+include "controllers/dashboardController.php";
 
 function registrosController()
 {
