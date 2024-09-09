@@ -1,8 +1,9 @@
 <?php include("./views/components/head.php"); ?>
+<!-- /index.php -->
 
 <body>
     <?php include("./views/components/header.php"); ?>
-    <main class="d-flex flex-wrap relative">
+    <main class="max-w-[1400px] m-auto d-flex flex-column [&>*]:p-6">
         <?php
 
         // Obtener la página solicitada desde la URL, por ejemplo, ?page=about
@@ -11,8 +12,8 @@
         // Ruteo básico
         switch ($page) {
             case 'registros':
-                include_once 'controllers/registrosController.php';
-                registros();
+                include_once 'views/registrosView.php';
+                registrosView();
                 break;
             case 'home':
             default:
