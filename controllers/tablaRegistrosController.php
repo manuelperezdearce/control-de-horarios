@@ -1,15 +1,10 @@
 <?php
 // tablaRegistrosController.php
-include_once "models/getData.php";
-include_once "views/components/tablaRegistros.php";
-include "models/conexion.php";
 
-// Función principal del controlador
-function tablaRegistrosController()
+include_once __DIR__ . "/../views/components/tablaRegistros.php";
+
+function tablaRegistrosController($registros)
 {
-    $conexion = handleConexion();
-    // Obtención de los registros desde el modelo
-    $registros = getData($conexion);
-    // Pasar los registros al componente vista
+    // Pasar los registros al componente vista para mostrar
     tablaRegistrosView($registros);
 }

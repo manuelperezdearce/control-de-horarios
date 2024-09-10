@@ -1,11 +1,11 @@
 <?php
 // dashboardControler.php
-include 'views/components/dashboardView.php';
+include __DIR__ . "/../views/components/dashboardView.php";
 
-include 'views/components/crearRegistroView.php';
+include __DIR__ . "/../views/components/crearRegistroView.php";
 
-include 'views/components/searchbarView.php';
-include 'controllers/searchbarController.php';
+include __DIR__ . "/../views/components/searchbarView.php";
+include __DIR__ . "/../controllers/searchbarController.php";
 
 
 function dashboardController()

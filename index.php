@@ -1,5 +1,8 @@
-<?php include("./views/components/head.php"); ?>
 <!-- /index.php -->
+
+<?php include  __DIR__ . "/views/registrosView.php"; ?>
+
+<?php include __DIR__ . "/views/components/head.php"; ?>
 
 <body>
     <?php include("./views/components/header.php"); ?>
@@ -12,7 +15,7 @@
         // Ruteo básico
         switch ($page) {
             case 'registros':
-                include_once 'views/registrosView.php';
+
                 registrosView();
                 break;
             case 'home':

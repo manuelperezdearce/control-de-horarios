@@ -31,7 +31,7 @@ function tablaRegistrosView($registros)
                             <div class="modal fade" id="editModal<?= $registro['report_id'] ?>" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
-                                        <form action="./controllers/editarRegistroController.php" method="post">
+                                        <form action="/controllers/editarRegistroController.php" method="post">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Editar Registro</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -55,19 +55,7 @@ function tablaRegistrosView($registros)
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                            <form action="./controllers/eliminarRegistroController.php" method="post" style="display:inline;">
+                            <form action="/controllers/eliminarRegistroController.php" method="post" style="display:inline;">
                                 <input type="hidden" name="report_id" value="<?= htmlspecialchars($registro['report_id']) ?>">
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?');">
                                     <i class="fa-solid fa-trash"></i>
