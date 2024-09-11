@@ -3,6 +3,14 @@
 function tablaRegistrosView($registros)
 {
 ?>
+    <span class="ms-auto px-2">
+        <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['buscarRegistros'])): ?>
+            Se encontraron <b><?php echo count($registros); ?></b> registros para la búsqueda de:
+            <b>"<?php echo $_POST['buscarRegistros']; ?>"</b>
+        <?php else: ?>
+            Se encontraron <b><?php echo count($registros); ?></b> registros en total.
+        <?php endif; ?>
+    </span>
     <div class="w-full table-responsive max-w-[1400px] mx-auto shadow-md">
         <table class="table">
             <thead>

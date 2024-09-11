@@ -14,6 +14,7 @@ $searchTerm = isset($_POST['buscarRegistros']) ? $_POST['buscarRegistros'] : nul
 // Obtención de los registros desde el modelo, filtrados por término de búsqueda
 $registros = getData($conexion, $searchTerm);
 
+
 // Llamar al controlador para renderizar el dashboard
 dashboardController();
 // Llamar al controlador para renderizar la tabla
