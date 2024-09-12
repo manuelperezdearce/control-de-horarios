@@ -2,8 +2,8 @@
 // components/crearRegistroView.php
 function crearRegistroView()
 { ?>
-    <a class="btn btn-success my-auto" href="" data-bs-toggle="modal"
-        data-bs-target="<?= "#modalNuevoRegistro" ?>"> Nuevo registro</a>
+    <a class="btn btn-success rounded-full p-0 h-12 w-12 flex items-center justify-center" href="" data-bs-toggle="modal"
+        data-bs-target="<?= "#modalNuevoRegistro" ?>"> <i class="fa-solid fa-plus fs-4 m-3"></i></i></a>
     <div
         class="modal fade"
         id="modalNuevoRegistro"

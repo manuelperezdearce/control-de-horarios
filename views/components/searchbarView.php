@@ -2,7 +2,6 @@
 //components/searchbarView.php
 function searchbarView()
 {
-    global $Qregistros;
 ?> <form action="index.php?page=registros" method="post" class="w-full">
         <div class="w-full my-auto">
             <label for="" class="form-label">Buscar</label>
@@ -23,13 +22,7 @@ function searchbarView()
                     <i class="fa-solid fa-magnifying-glass "></i>
                 </button>
             </div>
-
-
-            <small id="helpId" class="block form-text text-muted"><?php echo $Qregistros; ?></small>
-
-
         </div>
-
     </form>
 
 

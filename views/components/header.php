@@ -13,7 +13,7 @@
 
     <nav class="navbar navbar-expand-lg max-w-[1400px] mx-auto">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Tus Registros.com</a>
+            <a class="navbar-brand" href="index.php?page=home">Tus Registros.com</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" ...>
                 <span class="navbar-toggler-icon"></span>
             </button>

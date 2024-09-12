@@ -11,7 +11,7 @@ function tablaRegistrosView($registros)
             Se encontraron <b><?php echo count($registros); ?></b> registros en total.
         <?php endif; ?>
     </span>
-    <div class="w-full table-responsive max-w-[1400px] mx-auto shadow-md">
+    <article class="w-full table-responsive max-w-[1400px] mx-auto shadow-md">
         <table class="table">
             <thead>
                 <tr class="bg-secondary">
@@ -74,6 +74,6 @@ function tablaRegistrosView($registros)
                 <?php } ?>
             </tbody>
         </table>
-    </div>
+    </article>
 <?php
 }
