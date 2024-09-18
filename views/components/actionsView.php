@@ -6,8 +6,8 @@ function actionsView()
         <label for="" class="form-label">Acciones:</label>
         <div class="flex flex-row gap-4">
             <?php crearRegistroView(); ?>
-            <?php editarRegistroView(); ?>
-            <?php crearRegistroView(); ?>
+            <!-- <?php editarRegistroView(); ?>
+            <?php crearRegistroView(); ?> -->
         </div>
     </article>
 <?php }

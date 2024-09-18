@@ -9,7 +9,7 @@ include_once __DIR__ . "/../views/editarRegistroView.php";
 function editarRegistroController()
 {
     // Manejar conexión a la base de datos
-    $conexion = handleConexion();
+    $conexion = new conexion();
 
     if ($conexion->connect_error) {
         die("Error de conexión a la base de datos: " . $conexion->connect_error);
@@ -22,9 +22,6 @@ function editarRegistroController()
         // Registrar o mostrar el error de manera controlada
         echo "Error: " . $e->getMessage();
     }
-
-    // Cerrar la conexión después de la operación
-    $conexion->close();
 }
 
 // Ejecutar el controlador
