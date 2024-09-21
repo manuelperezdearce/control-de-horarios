@@ -1,6 +1,6 @@
 <?php
 
-class report
+class reporte
 {
     public function __construct(
         private $conexion,
@@ -9,11 +9,12 @@ class report
 
     public function getAll($conexion, $searchTerm)
     {
+        $searchTerm = isset($_POST['buscar']) ? $_POST['buscar'] : null;
         $data = [];
         if ($searchTerm !== null) {
             // Utilizando la inserción directa del término de búsqueda, lo cual NO es recomendado por razones de seguridad
             $searchTerm = '%' . $searchTerm . '%';
-            $sql = "SELECT * FROM reports_db.reports WHERE report_id LIKE '$searchTerm' OR user_name LIKE '$searchTerm' OR user_email LIKE '$searchTerm'";
+            $sql = "SELECT * FROM reports_db.reports WHERE report_id LIKE '$searchTerm'";
         } else {
             $sql = "SELECT * FROM reports_db.reports";
         }
@@ -43,11 +44,11 @@ class report
 
             if ($conexion->query($sql)) {
                 // Redirigir al usuario de vuelta a reports.php con un mensaje de éxito
-                header("Location: ../index.php?controller=report&action=list&success=record_added");
+                header("Location: ../index.php?controller=reporte&action=list&success=record_added");
                 exit;
             } else {
                 // Redirigir al usuario de vuelta a reports.php con un mensaje de error
-                header("Location: ../index.php?controller=report&action=list&error=insert_failed");
+                header("Location: ../index.php?controller=reporte&action=list&error=insert_failed");
                 exit;
             }
 
@@ -69,7 +70,7 @@ class report
 
             if ($conexion->query($sql)) {
                 // Redirigir de nuevo a reports.php después de la actualización
-                header("Location: ../index.php?controller=report&action=list&success=record_edited");
+                header("Location: ../index.php?controller=reporte&action=list&success=record_edited");
                 exit;
             } else {
                 echo "Error: " . $sql . "<br>" . $conexion->error;
@@ -86,11 +87,11 @@ class report
 
             // Crear la consula SQL para actualizar el report
 
-            $sql = "DELETE FROM reports_db.reports WHERE id='$fileId'";
+            $sql = "DELETE FROM reports_db.reports WHERE report_id='$fileId'";
 
             if ($conexion->query($sql)) {
                 // Redirigir de nuevo a reports.php después de la actualización
-                header("Location: ../index.php?controller=report&action=list&success=record_ereased");
+                header("Location: ../index.php?controller=reporte&action=list&success=record_ereased");
                 exit;
             } else {
                 echo "Error: " . $sql . "<br>" . $conexion->error;

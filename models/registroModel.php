@@ -10,7 +10,7 @@ class registro
     public function getAll($conexion)
     {
 
-        $searchTerm = isset($_POST['buscarRegistros']) ? $_POST['buscarRegistros'] : null;
+        $searchTerm = isset($_POST['buscar']) ? $_POST['buscar'] : null;
         $data = [];
         if ($searchTerm !== null) {
             // Utilizando la inserción directa del término de búsqueda, lo cual NO es recomendado por razones de seguridad

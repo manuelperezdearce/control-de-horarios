@@ -1,8 +1,7 @@
 <!-- /index.php -->
 
 <?php
-include __DIR__ . "/views/components/head.php";
-include __DIR__ . "/views/components/header.php";
+
 include_once __DIR__ . "/models/conexion.php";
 
 
@@ -14,9 +13,12 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'index';
 $controllerPath = __DIR__ . "/controllers/" . $controllerName . ".php";
 
 ?>
+<html>
+<?php include __DIR__ . "/views/components/head.php"; ?>
+<?php include __DIR__ . "/views/components/headerView.php"; ?>
 
 <body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-    <main class="max-w-[1400px] m-auto d-flex flex-column [&>article]:my-4 [&>article]:bg-slate-50 [&>*]:rounded-md [&>*]:p-3">
+    <main class="px-2 min-h-full max-w-[1400px] m-auto d-flex flex-column [&>article]:my-4 [&>article]:bg-slate-50 [&>*]:rounded-md [&>*]:p-3">
         <?php
         if (file_exists($controllerPath)) {
             include_once $controllerPath;
@@ -33,7 +35,7 @@ $controllerPath = __DIR__ . "/controllers/" . $controllerName . ".php";
 
         ?>
     </main>
-
+    <?php include __DIR__ . "/views/components/footerView.php"; ?>
 
 
 

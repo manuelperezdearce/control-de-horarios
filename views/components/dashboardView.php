@@ -3,7 +3,7 @@
 function dashboardView()
 {
 ?>
-    <article class="w-full flex flex-wrap justify-around gap-4 shadow-md p-4">
+    <article class="w-full flex flex-col gap-4 shadow-md p-3">
 
         <?php
         actionsView();

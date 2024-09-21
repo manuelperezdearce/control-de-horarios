@@ -1,9 +1,11 @@
  <?php
     //components/reportesView.php
-
+    include "controllers/dashboardController.php";
     function reportesView($reportes)
     {
+
     ?>
+     <?php dashboardController() ?>
      <span class="ms-auto px-2">
          <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['buscarreportes'])): ?>
              Se encontraron <b><?php echo count($reportes); ?></b> reportes para la búsqueda de:
@@ -60,7 +62,7 @@
                                      </div>
                                  </div>
                              </div>
-                             <form action="/controllers/eliminarRegistroController.php" method="post" style="display:inline;">
+                             <form action="index?controller=reporte&action=delete" method="post" style="display:inline;">
                                  <input type="hidden" name="id" value="<?= htmlspecialchars($reporte['report_id']) ?>">
                                  <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este reporte?');">
                                      <i class="fa-solid fa-trash"></i>

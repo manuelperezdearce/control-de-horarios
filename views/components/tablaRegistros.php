@@ -65,7 +65,7 @@ function tablaRegistrosView($registros)
                                     </div>
                                 </div>
                             </div>
-                            <form action="/controllers/eliminarRegistroController.php" method="post" style="display:inline;">
+                            <form action="index?controller=reporte&action=delete" method="post" style="display:inline;">
                                 <input type="hidden" name="id" value="<?= htmlspecialchars($registro['id']) ?>">
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?');">
                                     <i class="fa-solid fa-trash"></i>
