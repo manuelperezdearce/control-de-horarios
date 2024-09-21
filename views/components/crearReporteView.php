@@ -28,7 +28,7 @@ function crearRegistroView()
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="max-w-md mx-auto" action="index?controller=registro&action=create" method="post">
+                    <form class="max-w-md mx-auto" action="../controllers/crearRegistroController.php" method="post">
                         <div class="mb-3">
                             <label name="user_name" for="nameForm" class="form-label">Nombre</label>
                             <input name="user_name" type="text" class="form-control" id="nameForm" placeholder="Mi Nombre" required>

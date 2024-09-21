@@ -1,33 +1,45 @@
 <!-- /index.php -->
 
-<?php include  __DIR__ . "/views/registrosView.php"; ?>
+<?php
+include __DIR__ . "/views/components/head.php";
+include __DIR__ . "/views/components/header.php";
+include_once __DIR__ . "/models/conexion.php";
 
-<?php include __DIR__ . "/views/components/head.php"; ?>
 
-<body>
-    <?php include("./views/components/header.php"); ?>
-    <main class="max-w-[1400px] m-auto d-flex flex-column [&>*]:p-6">
+// Obtener el controlador y la acción desde la URL
+$controllerName = isset($_GET['controller']) ? $_GET['controller'] . 'Controller' : 'homeController';
+$action = isset($_GET['action']) ? $_GET['action'] : 'index';
+
+// Ruta básica para encontrar los controladores
+$controllerPath = __DIR__ . "/controllers/" . $controllerName . ".php";
+
+?>
+
+<body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <main class="max-w-[1400px] m-auto d-flex flex-column [&>article]:my-4 [&>article]:bg-slate-50 [&>*]:rounded-md [&>*]:p-3">
         <?php
-
-        // Obtener la página solicitada desde la URL, por ejemplo, ?page=about
-        $page = isset($_GET['page']) ? $_GET['page'] : 'home';
-
-        // Ruteo básico
-        switch ($page) {
-            case 'registros':
-
-                registrosView();
-                break;
-            case 'home':
-            default:
-                include_once 'controllers/homeController.php';
-                home();
-                break;
+        if (file_exists($controllerPath)) {
+            include_once $controllerPath;
+            // Crear instancia del controlador y llamar a la acción
+            $controller = new $controllerName($conexion = handleConexion()); // Suponiendo que $conexion es tu conexión a la BD
+            if (method_exists($controller, $action)) {
+                $controller->$action();
+            } else {
+                echo "La acción no existe.";
+            }
+        } else {
+            echo "El controlador no existe.";
         }
+
         ?>
     </main>
+
+
+
+
     <!-- JavaScript Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

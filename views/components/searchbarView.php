@@ -2,7 +2,7 @@
 //components/searchbarView.php
 function searchbarView()
 {
-?> <form action="index.php?page=registros" method="post" class="w-full">
+?> <form action="index?controller=registro&action=search" method="post" class="w-full">
         <div class="w-full my-auto">
             <label for="" class="form-label">Buscar</label>
             <div class="flex flex-row relative">

@@ -10,8 +10,8 @@ function buscarRegistrosModel($conexion)
         // Crear la consula SQL para buscar en id, user_name y user_email
 
         $sql = "SELECT *
-        FROM reports_db.reports
-        WHERE report_id LIKE '%$searchValue%' OR user_name LIKE '%$searchValue%' OR user_email LIKE '%$searchValue%'";
+        FROM reports_db.files
+        WHERE id LIKE '%$searchValue%' OR user_name LIKE '%$searchValue%' OR user_email LIKE '%$searchValue%'";
 
         $res = $conexion->query($sql);
 

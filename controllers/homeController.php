@@ -1,6 +1,11 @@
 <?php
 // homeController.php
-function home()
+
+
+class homeController
 {
-    include 'views/homeView.php';
+    public function view()
+    {
+        include 'views/homeView.php';
+    }
 }

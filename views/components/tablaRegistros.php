@@ -15,28 +15,30 @@ function tablaRegistrosView($registros)
         <table class="table">
             <thead>
                 <tr class="bg-secondary">
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Creado</th>
-                    <th scope="col">Última actualización</th>
-                    <th scope="col">Acciones</th>
+                    <th class="text-center" scope="col">ID</th>
+                    <th class="text-center" scope="col">Nombre</th>
+                    <th class="text-center" scope="col">Email</th>
+                    <th class="text-center" scope="col">Reporte</th>
+                    <th class="text-center" scope="col">Creado</th>
+                    <th class="text-center" scope="col">Última actualización</th>
+                    <th class="text-center" scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($registros as $registro) { ?>
                     <tr>
-                        <td><?= htmlspecialchars($registro["report_id"]) ?></td>
-                        <td><?= htmlspecialchars($registro["user_name"]) ?></td>
-                        <td><?= htmlspecialchars($registro["user_email"]) ?></td>
-                        <td><?= htmlspecialchars($registro["create_at"]) ?></td>
-                        <td><?= htmlspecialchars($registro["updated_at"]) ?></td>
-                        <td>
+                        <td class="text-center"><?= htmlspecialchars($registro["id"]) ?></td>
+                        <td class="text-center"><?= htmlspecialchars($registro["user_name"]) ?></td>
+                        <td class="text-center"><?= htmlspecialchars($registro["user_email"]) ?></td>
+                        <td class="text-center"><?= htmlspecialchars($registro["report_id"]) ?></td>
+                        <td class="text-center"><?= htmlspecialchars($registro["create_at"]) ?></td>
+                        <td class="text-center"><?= htmlspecialchars($registro["updated_at"]) ?></td>
+                        <td class="text-center">
                             <!-- Ejemplo de cómo podrías organizar el modal para edición -->
-                            <a class="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editModal<?= $registro['report_id'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a class="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editModal<?= $registro['id'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
 
                             <!-- Modal Structure -->
-                            <div class="modal fade" id="editModal<?= $registro['report_id'] ?>" tabindex="-1" role="dialog">
+                            <div class="modal fade" id="editModal<?= $registro['id'] ?>" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <form action="/controllers/editarRegistroController.php" method="post">
@@ -45,14 +47,14 @@ function tablaRegistrosView($registros)
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <input type="hidden" name="report_id" value="<?= $registro['report_id'] ?>">
+                                                <input type="hidden" name="id" value="<?= $registro['id'] ?>">
                                                 <div class="mb-3">
-                                                    <label for="name<?= $registro['report_id'] ?>" class="form-label">Nombre:</label>
-                                                    <input type="text" class="form-control" id="name<?= $registro['report_id'] ?>" name="user_name" value="<?= $registro['user_name'] ?>">
+                                                    <label for="name<?= $registro['id'] ?>" class="form-label">Nombre:</label>
+                                                    <input type="text" class="form-control" id="name<?= $registro['id'] ?>" name="user_name" value="<?= $registro['user_name'] ?>">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="email<?= $registro['report_id'] ?>" class="form-label">Email:</label>
-                                                    <input type="email" class="form-control" id="email<?= $registro['report_id'] ?>" name="user_email" value="<?= $registro['user_email'] ?>">
+                                                    <label for="email<?= $registro['id'] ?>" class="form-label">Email:</label>
+                                                    <input type="email" class="form-control" id="email<?= $registro['id'] ?>" name="user_email" value="<?= $registro['user_email'] ?>">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -64,7 +66,7 @@ function tablaRegistrosView($registros)
                                 </div>
                             </div>
                             <form action="/controllers/eliminarRegistroController.php" method="post" style="display:inline;">
-                                <input type="hidden" name="report_id" value="<?= htmlspecialchars($registro['report_id']) ?>">
+                                <input type="hidden" name="id" value="<?= htmlspecialchars($registro['id']) ?>">
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?');">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
