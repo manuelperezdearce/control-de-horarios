@@ -15,7 +15,7 @@ function searchbarView()
             break;
     }
 ?>
-    <form action="index?controller=<?php echo $controller ?>&action=search" method="post" class="w-full lg:w-2/3">
+    <form action="index?controller=<?php echo $controller ?>&action=search" method="post" class="w-full min-w-[300px]">
         <div class="w-full my-auto ">
             <label for="" class="form-label">Buscar</label>
             <div class="flex flex-row relative">

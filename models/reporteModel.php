@@ -60,22 +60,20 @@ class reporte
     public function edit($conexion)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $fileId = $_POST['id'];
-            $userName = $_POST['user_name'];
-            $userEmail = $_POST['user_email'];
+            $fileId = $_POST['report_id'];
 
             // editar la consula SQL para actualizar el report
 
-            $sql = "UPDATE reports_db.reports SET user_name='$userName', user_email='$userEmail' WHERE id='$fileId'";
+            // $sql = "";
 
-            if ($conexion->query($sql)) {
-                // Redirigir de nuevo a reports.php después de la actualización
-                header("Location: ../index.php?controller=reporte&action=list&success=record_edited");
-                exit;
-            } else {
-                echo "Error: " . $sql . "<br>" . $conexion->error;
-            }
-
+            // if ($conexion->query($sql)) {
+            //     // Redirigir de nuevo a reports.php después de la actualización
+            //     header("Location: ../index.php?controller=reporte&action=list&success=record_edited");
+            //     exit;
+            // } else {
+            //     echo "Error: " . $sql . "<br>" . $conexion->error;
+            // }
+            header("Location: ../index.php?controller=reporte&action=list&success=notworking");
             // Cerrar la conexión
             $conexion->close();
         }
@@ -83,7 +81,7 @@ class reporte
     public function delete($conexion)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $fileId = $_POST['id'];
+            $fileId = $_POST['report_id'];
 
             // Crear la consula SQL para actualizar el report
 

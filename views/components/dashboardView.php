@@ -3,16 +3,17 @@
 function dashboardView()
 {
 ?>
-    <article class="w-full flex flex-col gap-4 shadow-md p-3">
-
-        <?php
-        actionsView();
-        searchbarView();
-        orderByView();
-        ?>
-
+    <article class="w-full flex justify-center flex-wrap gap-4 shadow-none p-0 bg-transparent shadow-md [&>section]:bg-slate-50 [&>*]:rounded-md [&>*]:p-3 [&>*]:shadow-md  [&>*]:flex-auto">
+        <section>
+            <?php actionsView() ?>
+        </section>
+        <section>
+            <?php searchbarView() ?>
+        </section>
+        <section>
+            <?php orderByView() ?>
+        </section>
     </article>
-
 <?php
 }
 ?>

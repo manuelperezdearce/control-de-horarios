@@ -1,11 +1,10 @@
  <?php
     //components/reportesView.php
-    include "controllers/dashboardController.php";
+    // include "controllers/dashboardController.php";
     function reportesView($reportes)
     {
 
     ?>
-     <?php dashboardController() ?>
      <span class="ms-auto px-2">
          <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['buscarreportes'])): ?>
              Se encontraron <b><?php echo count($reportes); ?></b> reportes para la búsqueda de:

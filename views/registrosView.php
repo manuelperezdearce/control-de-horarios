@@ -1,11 +1,10 @@
 <?php
 //components/registrosView.php
-include "controllers/dashboardController.php";
 
 function registrosView($registros)
 {
 ?>
-    <?php dashboardController() ?>
+
     <span class="ms-auto px-2">
         <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['buscarregistros'])): ?>
             Se encontraron <b><?php echo count($registros); ?></b> registros para la búsqueda de:
@@ -15,16 +14,20 @@ function registrosView($registros)
         <?php endif; ?>
     </span>
     <article class="w-full table-responsive max-w-[1400px] mx-auto shadow-md">
+
         <table class="table">
             <thead>
                 <tr class="bg-secondary">
+
                     <th class="text-center" scope="col">ID</th>
                     <th class="text-center" scope="col">Nombre</th>
                     <th class="text-center" scope="col">Email</th>
                     <th class="text-center" scope="col">Reporte ID</th>
                     <th class="text-center" scope="col">Creado</th>
                     <th class="text-center" scope="col">Última actualización</th>
+
                     <th class="text-center" scope="col">Acciones</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -37,7 +40,7 @@ function registrosView($registros)
                         <td class="text-center"><?= htmlspecialchars($reporte["create_at"]) ?></td>
                         <td class="text-center"><?= htmlspecialchars($reporte["updated_at"]) ?></td>
                         <td class="text-center">
-                            <!-- Ejemplo de cómo podrías organizar el modal para edición -->
+                            <!-- Ejemplo de cómo podrías organizar el modal para edición-->
                             <a class="btn btn-warning" href="" data-bs-toggle="modal" data-bs-target="#editModal<?= $reporte['id'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
 
                             <!-- Modal Structure -->
@@ -80,5 +83,6 @@ function registrosView($registros)
             </tbody>
         </table>
     </article>
+
 <?php
 }

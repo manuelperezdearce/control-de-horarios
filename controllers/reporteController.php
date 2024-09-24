@@ -1,7 +1,16 @@
 <?php
 
+include __DIR__ . "/../views/components/dashboardView.php";
+include __DIR__ . "/../views/components/actionsView.php";
+include __DIR__ . "/../views/components/searchbarView.php";
+include __DIR__ . "/../views/components/crearView.php";
+include __DIR__ . "/../views/components/orderByView.php";
+include __DIR__ . "/../views/components/editarView.php";
+include __DIR__ . "/../views/components/eliminarView.php";
+
+
 include_once "models/reporteModel.php";
-include_once "views/reportesView.php";
+include "views/components/listaView.php";
 
 class reporteController
 {
@@ -17,30 +26,35 @@ class reporteController
 
         // Obtener todos los reportes
         $reportes = $reportModel->getAll($this->conexion, null);
-        reportesView($reportes);
+        dashboardView();
+        listaView($reportes);
     }
     public function create()
     {
         $reporteModel = new reporte($this->conexion, null);
         $reportes = $reporteModel->create($this->conexion, null);
-        reportesView($reportes);
+        dashboardView();
+        listaView($reportes);
     }
     public function edit()
     {
         $reporteModel = new reporte($this->conexion, null);
         $reportes = $reporteModel->edit($this->conexion, null);
-        reportesView($reportes);
+        dashboardView();
+        listaView($reportes);
     }
     public function delete()
     {
         $reporteModel = new reporte($this->conexion, null);
         $reportes = $reporteModel->delete($this->conexion, null);
-        reportesView($reportes);
+        dashboardView();
+        listaView($reportes);
     }
     public function search()
     {
         $reporteModel = new reporte($this->conexion, null);
         $reportes = $reporteModel->getAll($this->conexion, null);
-        reportesView($reportes);
+        dashboardView();
+        listaView($reportes);
     }
 }
