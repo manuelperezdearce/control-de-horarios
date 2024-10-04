@@ -13,9 +13,17 @@ function crearView()
             global $controller;
             $controller = "reporte";
             break;
+        case 'usuarioController':
+            global $controller;
+            $controller = "usuario";
+            break;
+        case 'homeController':
+            global $controller;
+            $controller = "registro";
+            break;
     }
 ?>
-    <a class="btn btn-success rounded-full p-0 h-12 w-12 flex items-center justify-center" href="" data-bs-toggle="modal"
+    <a class="btn btn-success rounded-full p-0 <?= $controllerName == 'homeController' ? 'w-20 h-20' : 'w-12 h-12' ?> flex items-center justify-center shadow-md" href="" data-bs-toggle="modal"
         data-bs-target="<?= "#modalCrear" ?>"> <i class="fa-solid fa-plus fs-4 m-3"></i></i></a>
     <div
         class="modal fade"
@@ -48,12 +56,24 @@ function crearView()
                             case 'registro':
                         ?>
                                 <div class="mb-3">
-                                    <label name="user_name" for="nameForm" class="form-label">Nombre</label>
-                                    <input name="user_name" type="text" class="form-control" id="nameForm" placeholder="Mi Nombre" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label name="user_email" for="emailForm" class="form-label">Email</label>
-                                    <input name="user_email" type="email" class="form-control" id="emailForm" placeholder="nombre@ejemplo.com" required>
+                                    <div class="mb-3">
+                                        <label name="rut" for="rutForm" class="form-label">Rut</label>
+                                        <input name="rut" type="text" class="form-control" id="rutForm" placeholder="Ingrese ID de Trabajador" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label name="password" for="passForm" class="form-label">Contraseña</label>
+                                        <input name="password" type="text" class="form-control" id="passForm" placeholder="Ingrese contraseña 4 dígitos" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Tipo de Registro</label>
+                                        <select
+                                            class="form-select form-select-md"
+                                            name="IngresoSalida"
+                                            id="IngresoSalida">
+                                            <option value="entrada">Entrada</option>
+                                            <option value="salida">Salida</option>
+                                        </select>
+                                    </div>
                                 </div>
                             <?php
                                 break;
@@ -61,6 +81,32 @@ function crearView()
                             ?>
                                 <div class="mb-3">
                                     <label name="Confirmación" for="reporteForm" class="form-label">¿Desea crear un nuevo reporte?</label>
+
+                                </div>
+                            <?php
+                                break;
+                            case 'usuario':
+                            ?>
+                                <div class="mb-3">
+                                    <div class="mb-3">
+                                        <label name="rut" for="rutForm" class="form-label">Rut</label>
+                                        <input name="rut" type="text" class="form-control" id="rutForm" placeholder="Ingrese ID de Trabajador" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label name="password" for="passForm" class="form-label">Contraseña</label>
+                                        <input name="password" type="text" class="form-control" id="passForm" placeholder="Ingrese contraseña 4 dígitos" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Rol de usuario</label>
+                                        <select
+                                            class="form-select form-select-md"
+                                            name="rol"
+                                            id="rol">
+                                            <option value="3">Usuario</option>
+                                            <option value="1">Administrador</option>
+                                        </select>
+                                    </div>
+
 
                                 </div>
                         <?php

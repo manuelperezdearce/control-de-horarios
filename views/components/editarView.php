@@ -5,7 +5,7 @@ function editarView($elemento)
     global $controller;
 
     // Determinar la clave del ID según el tipo de controlador
-    $elementoIDKey = $controller == 'registro' ? 'id' : 'report_id';
+    $elementoIDKey = 'id';
     $elementoID = $elemento[$elementoIDKey]; // Obtener el valor del ID
 ?>
     <!-- Botón para abrir el modal -->

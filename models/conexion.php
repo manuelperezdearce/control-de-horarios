@@ -38,7 +38,7 @@ function handleConexion()
     $hostname = "localhost";
     $username = "root";
     $password = "";
-    $database = "reports_db";
+    $database = "control_acceso";
     $port = 3306;
     $socket = null;
 

@@ -14,29 +14,31 @@ function listaView($data)
                 Se encontraron <b><?php echo count($data); ?></b> <?php echo $controller ?> en total.
             <?php endif; ?>
         </p>
-        <table class="table">
-            <thead>
-                <tr class="bg-secondary">
-                    <?php foreach (array_keys($data[0]) as $key) { ?>
-                        <th class="text-center" scope="col"><?php echo $key ?></th>
-                    <?php } ?>
-                    <th class="text-center" scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($data as $elemento) { ?>
-                    <tr>
+        <?php if ($data) { ?>
+            <table class="table">
+                <thead>
+                    <tr class="bg-secondary">
                         <?php foreach (array_keys($data[0]) as $key) { ?>
-                            <td class="text-center" scope="col"><?php echo ($elemento[$key]) ?></td>
+                            <th class="text-center" scope="col"><?php echo $key ?></th>
                         <?php } ?>
-                        <td class="text-center">
-                            <?php editarView($elemento) ?>
-                            <?php eliminarView($elemento) ?>
-                        </td>
+                        <th class="text-center" scope="col">Acciones</th>
                     </tr>
-                <?php } ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($data as $elemento) { ?>
+                        <tr>
+                            <?php foreach (array_keys($data[0]) as $key) { ?>
+                                <td class="text-center" scope="col"><?php echo ($elemento[$key]) ?></td>
+                            <?php } ?>
+                            <td class="text-center">
+                                <?php editarView($elemento) ?>
+                                <?php eliminarView($elemento) ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        <?php }  ?>
     </article>
 <?php
 }

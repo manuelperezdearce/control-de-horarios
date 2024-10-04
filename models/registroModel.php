@@ -14,9 +14,9 @@ class registro
         if ($searchTerm !== null) {
             // Utilizando la inserción directa del término de búsqueda, lo cual NO es recomendado por razones de seguridad
             $searchTerm = '%' . $searchTerm . '%';
-            $sql = "SELECT * FROM reports_db.files WHERE id LIKE '$searchTerm' OR user_name LIKE '$searchTerm' OR user_email LIKE '$searchTerm'";
+            $sql = "SELECT * FROM control_acceso.registros WHERE id LIKE '$searchTerm' OR user_name LIKE '$searchTerm' OR user_email LIKE '$searchTerm'";
         } else {
-            $sql = "SELECT * FROM reports_db.files";
+            $sql = "SELECT * FROM control_acceso.registros";
         }
         $result = $conexion->query($sql);
         if ($result === false) {
@@ -32,20 +32,17 @@ class registro
     public function create($conexion)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $userName = $_POST['user_name'];
-            $userEmail = $_POST['user_email'];
+            $rut = $_POST['rut'];
+            $pasword = $_POST['password'];
+            $tipoRegistro = $_POST['IngresoSalida'];
 
             // Validar si el email ingresado ya existe
-            $sql_check = "SELECT * FROM reports_db.files WHERE user_email = '$userEmail'";
+            $sql_check = "SELECT * FROM control_acceso.usuarios WHERE rut = '$rut'";
             $resultado = $conexion->query($sql_check);
 
             if ($resultado->num_rows > 0) {
-                // Redirigir al usuario de vuelta a registros.php con un mensaje de error
-                header("Location: ../index.php?controller=registro&action=list&error=email_exists");
-                exit;
-            } else {
                 // Insertar el nuevo registro
-                $sql = "INSERT INTO reports_db.files (user_name, user_email) VALUES ('$userName', '$userEmail')";
+                $sql = "INSERT INTO control_acceso.registros (usuario_id, tipo) VALUES ('$rut', '$tipoRegistro')";
 
                 if ($conexion->query($sql)) {
                     // Redirigir al usuario de vuelta a registros.php con un mensaje de éxito
@@ -56,6 +53,10 @@ class registro
                     header("Location: ../index.php?controller=registro&action=list&error=insert_failed");
                     exit;
                 }
+            } else {
+                // Redirigir al usuario de vuelta a registros.php con un mensaje de error
+                header("Location: ../index.php?controller=registro&action=list&error=user_404");
+                exit;
             }
 
             // Cerrar la conexión
@@ -68,11 +69,11 @@ class registro
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $fileId = $_POST['id'];
             $userName = $_POST['user_name'];
-            $userEmail = $_POST['user_email'];
+            $rut = $_POST['user_email'];
 
             // editar la consula SQL para actualizar el registro
 
-            $sql = "UPDATE reports_db.files SET user_name='$userName', user_email='$userEmail' WHERE id='$fileId'";
+            $sql = "UPDATE control_acceso.registros SET user_name='$userName', user_email='$rut' WHERE id='$fileId'";
 
             if ($conexion->query($sql)) {
                 // Redirigir de nuevo a registros.php después de la actualización
@@ -93,7 +94,7 @@ class registro
 
             // Crear la consula SQL para actualizar el registro
 
-            $sql = "DELETE FROM reports_db.files WHERE id='$fileId'";
+            $sql = "DELETE FROM control_acceso.registros WHERE id='$fileId'";
 
             if ($conexion->query($sql)) {
                 // Redirigir de nuevo a registros.php después de la actualización

@@ -5,7 +5,7 @@ function eliminarView($elemento)
     global $controller;
 
     // Determinar el nombre de la clave según el tipo de controlador
-    $elementoID = $controller == 'registro' ? 'id' : 'report_id';
+    $elementoID = 'id';
     $idValue = $elemento[$elementoID]; // Obtener el valor del ID
 ?>
     <!-- Botón para abrir el modal de eliminación -->

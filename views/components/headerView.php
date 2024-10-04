@@ -4,7 +4,7 @@
 
     <nav class="navbar navbar-expand-lg max-w-[1400px] mx-auto">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php?controller=home&action=view">Tus Registros&Reportes.com</a>
+            <a class="navbar-brand" href="index.php?controller=home&action=view">Control de Horarios</a>
             <button class="lg:hidden" type="button" id="burgerButton">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -16,8 +16,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?controller=registro&action=list"><i class="fa-solid fa-file"></i>Registros</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="index.php?controller=reporte&action=list"><i class="fa-solid fa-folder"></i>Reportes</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?controller=usuario&action=list"><i class="fa-solid fa-user"></i>Usuarios</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Mi perfil</a>
