@@ -9,7 +9,6 @@ class registro
 
     public function getAll($conexion)
     {
-
         $searchTerm = isset($_POST['buscar']) ? $_POST['buscar'] : null;
         $data = [];
         if ($searchTerm !== null) {

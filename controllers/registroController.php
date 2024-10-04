@@ -18,9 +18,10 @@ class registroController
 
     public function list()
     {
+        dashboardView();
         $registroModel = new registro($this->conexion, null);
         $registros = $registroModel->getAll($this->conexion, null);
-        dashboardView();
+
         listaView($registros);
     }
     public function create()

@@ -23,7 +23,7 @@ $controllerPath = __DIR__ . "/controllers/" . $controllerName . ".php";
         if (file_exists($controllerPath)) {
             include_once $controllerPath;
             // Crear instancia del controlador y llamar a la acción
-            $controller = new $controllerName($conexion = handleConexion()); // Suponiendo que $conexion es tu conexión a la BD
+            $controller = new $controllerName($conexion = handleConexion());
             if (method_exists($controller, $action)) {
                 $controller->$action();
             } else {

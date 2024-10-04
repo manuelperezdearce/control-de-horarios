@@ -21,12 +21,13 @@ class reporteController
     // Acción 'list' para obtener todos los reportes
     public function list()
     {
+        dashboardView();
         // Crear una instancia del modelo
         $reportModel = new reporte($this->conexion, null);
 
         // Obtener todos los reportes
         $reportes = $reportModel->getAll($this->conexion, null);
-        dashboardView();
+
         listaView($reportes);
     }
     public function create()
