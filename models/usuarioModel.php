@@ -14,7 +14,7 @@ class usuario
         if ($searchTerm !== null) {
             // Utilizando la inserción directa del término de búsqueda, lo cual NO es recomendado por razones de seguridad
             $searchTerm = '%' . $searchTerm . '%';
-            $sql = "SELECT * FROM control_acceso.usuarios WHERE id LIKE '$searchTerm'";
+            $sql = "SELECT * FROM control_acceso.usuarios WHERE id LIKE '$searchTerm' OR rut LIKE '$searchTerm'";
         } else {
             $sql = "SELECT * FROM control_acceso.usuarios";
         }
@@ -72,20 +72,22 @@ class usuario
     public function edit($conexion)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $fileId = $_POST['id'];
+            $id = $_POST['id'];
+            $rut = $_POST['rut'];
+            $rol = $_POST['role'];
 
-            // editar la consula SQL para actualizar el user
+            // editar la consula SQL para actualizar el usuario
 
-            // $sql = "";
+            $sql = "UPDATE control_acceso.usuarios SET id='$id', rut='$rut', role='$rol' WHERE id='$id'";
 
-            // if ($conexion->query($sql)) {
-            //     // Redirigir de nuevo a usuarios.php después de la actualización
-            //     header("Location: ../index.php?controller=usuario&action=list&success=record_edited");
-            //     exit;
-            // } else {
-            //     echo "Error: " . $sql . "<br>" . $conexion->error;
-            // }
-            header("Location: ../index.php?controller=usuario&action=list&success=notworking");
+            if ($conexion->query($sql)) {
+                // Redirigir de nuevo a usuarios.php después de la actualización
+                header("Location: ../index.php?controller=usuario&action=list&success=record_edited");
+                exit;
+            } else {
+                echo "Error: " . $sql . "<br>" . $conexion->error;
+            }
+
             // Cerrar la conexión
             $conexion->close();
         }

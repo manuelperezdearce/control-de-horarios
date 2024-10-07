@@ -13,6 +13,10 @@ function searchbarView()
             global $controller;
             $controller = "reporte";
             break;
+        case 'usuarioController':
+            global $controller;
+            $controller = "usuario";
+            break;
     }
 ?>
     <form action="index?controller=<?php echo $controller ?>&action=search" method="post" class="w-full min-w-[300px]">

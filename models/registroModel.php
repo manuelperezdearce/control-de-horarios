@@ -14,7 +14,7 @@ class registro
         if ($searchTerm !== null) {
             // Utilizando la inserción directa del término de búsqueda, lo cual NO es recomendado por razones de seguridad
             $searchTerm = '%' . $searchTerm . '%';
-            $sql = "SELECT * FROM control_acceso.registros WHERE id LIKE '$searchTerm' OR user_name LIKE '$searchTerm' OR user_email LIKE '$searchTerm'";
+            $sql = "SELECT * FROM control_acceso.registros WHERE id LIKE '$searchTerm' OR usuario_id LIKE '$searchTerm' OR tipo LIKE '$searchTerm'";
         } else {
             $sql = "SELECT * FROM control_acceso.registros";
         }
@@ -33,11 +33,11 @@ class registro
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $rut = $_POST['rut'];
-            $pasword = $_POST['password'];
+            $password = $_POST['password'];
             $tipoRegistro = $_POST['IngresoSalida'];
 
             // Validar si el email ingresado ya existe
-            $sql_check = "SELECT * FROM control_acceso.usuarios WHERE rut = '$rut'";
+            $sql_check = "SELECT * FROM control_acceso.usuarios WHERE rut = '$rut' AND password = '$password' ";
             $resultado = $conexion->query($sql_check);
 
             if ($resultado->num_rows > 0) {
@@ -55,7 +55,7 @@ class registro
                 }
             } else {
                 // Redirigir al usuario de vuelta a registros.php con un mensaje de error
-                header("Location: ../index.php?controller=registro&action=list&error=user_404");
+                header("Location: ../index.php?controller=registro&action=list&error=credential_failed");
                 exit;
             }
 
@@ -67,13 +67,13 @@ class registro
     public function edit($conexion)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $fileId = $_POST['id'];
-            $userName = $_POST['user_name'];
-            $rut = $_POST['user_email'];
+            $id = $_POST['id'];
+            $rut = $_POST['usuario_id'];
+            $tipo = $_POST['tipo'];
 
             // editar la consula SQL para actualizar el registro
 
-            $sql = "UPDATE control_acceso.registros SET user_name='$userName', user_email='$rut' WHERE id='$fileId'";
+            $sql = "UPDATE control_acceso.registros SET id='$id', usuario_id='$rut', tipo='$tipo' WHERE id='$id'";
 
             if ($conexion->query($sql)) {
                 // Redirigir de nuevo a registros.php después de la actualización

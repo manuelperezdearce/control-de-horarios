@@ -13,15 +13,16 @@ include "views/components/listaView.php";
 class registroController
 {
     public function __construct(
-        private $conexion
+        private $conexion,
+
     ) {}
 
     public function list()
     {
+
         dashboardView();
         $registroModel = new registro($this->conexion, null);
         $registros = $registroModel->getAll($this->conexion, null);
-
         listaView($registros);
     }
     public function create()

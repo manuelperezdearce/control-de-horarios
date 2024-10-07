@@ -4,7 +4,6 @@
 
 include_once __DIR__ . "/models/conexion.php";
 
-
 // Obtener el controlador y la acción desde la URL
 $controllerName = isset($_GET['controller']) ? $_GET['controller'] . 'Controller' : 'homeController';
 $action = isset($_GET['action']) ? $_GET['action'] : 'index';
